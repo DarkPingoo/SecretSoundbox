@@ -5,6 +5,7 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -87,9 +88,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void checkForUpdate() {
+        Log.d("Secret", "Check for update");
         AppUpdater appUpdater = new AppUpdater(this);
         appUpdater.setUpdateFrom(UpdateFrom.JSON);
-        appUpdater.setUpdateJSON("https://bitbucket.org/DarkPingoo11/secretsoundbox/src/master/release/update-changelog.json");
+        appUpdater.setUpdateJSON("https://bitbucket.org/DarkPingoo11/secretsoundbox/raw/HEAD/release/update-changelog.json");
         appUpdater.start();
     }
 }
