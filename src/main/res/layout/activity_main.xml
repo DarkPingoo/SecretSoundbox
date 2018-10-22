@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <Button
+        android:id="@+id/button_ja"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:text="JA !"
+        android:tag="ja"
+        android:textSize="40sp" />
+
+    <Button
+        android:id="@+id/button_nein"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:text="NEIN !"
+        android:tag="nein"
+        android:textSize="40sp" />
+
+    <Button
+        android:id="@+id/button_fascita"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:tag="fascista"
+        android:text="FASCISTAAA !"
+        android:textSize="40sp" />
+
+    <Button
+        android:id="@+id/button_douel"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:tag="fascista"
+        android:text="DOUUUELL !"
+        android:textSize="40sp" />
+</LinearLayout>
