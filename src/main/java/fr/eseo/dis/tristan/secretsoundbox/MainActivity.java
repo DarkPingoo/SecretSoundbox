@@ -93,12 +93,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void checkForUpdate() {
         Log.d("Secret", "Check for update");
-        AppUpdater appUpdater = new AppUpdater(this);
-        appUpdater.setUpdateFrom(UpdateFrom.JSON);
-        appUpdater.setUpdateJSON("https://bitbucket.org/DarkPingoo11/secretsoundbox/raw/HEAD/release/update-changelog.json");
-        appUpdater.start();
-
-        /*
         AppUpdaterUtils appUpdaterUtils = new AppUpdaterUtils(this)
                 .setUpdateJSON("https://bitbucket.org/DarkPingoo11/secretsoundbox/raw/HEAD/release/update-changelog.json")
                 .withListener(new AppUpdaterUtils.UpdateListener() {
@@ -118,6 +112,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                 });
         appUpdaterUtils.start();
-        */
     }
 }
