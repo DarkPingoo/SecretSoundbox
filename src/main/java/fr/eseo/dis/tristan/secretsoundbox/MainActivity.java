@@ -110,12 +110,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Log.d("Secret", "Check for update");
         AppUpdaterUtils appUpdaterUtils = new AppUpdaterUtils(this)
                 .setUpdateFrom(UpdateFrom.JSON)
-                .setUpdateJSON("https://bitbucket.org/DarkPingoo11/secretsoundbox/raw/HEAD/release/update-changelog.json")
+                .setUpdateJSON("https://github.com/DarkPingoo/SecretSoundbox/raw/master/release/update-changelog.json")
                 .withListener(new AppUpdaterUtils.UpdateListener() {
 
                     @Override
                     public void onSuccess(Update update, Boolean isUpdateAvailable) {
                         // String url = update.getUrlToDownload()+"";
+                        Log.d("Secret", "Update ? " + isUpdateAvailable);
+                        Log.d("Secret", "Version ? " + update.getLatestVersion());
                         if(isUpdateAvailable) {
                             showDialog(update.getLatestVersion(), update.getUrlToDownload()+"");
                         }
@@ -186,5 +188,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                 })
                 .create();
+        dialog.show();
     }
 }
