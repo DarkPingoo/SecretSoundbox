@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        this.checkForPermissions();
+
         this.musicMap = new HashMap<>();
 
         this.musicMap.put((Button) findViewById(R.id.button_nein), R.raw.nein);
@@ -133,7 +135,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * Mise a jour de l'application
      */
     private void updateApp(String url) {
-        this.checkForPermissions();
         Log.d("Secret", "Téléchargement depuis l'url : " + url);
 
         DownloadApk downloadApk = new DownloadApk(MainActivity.this);
