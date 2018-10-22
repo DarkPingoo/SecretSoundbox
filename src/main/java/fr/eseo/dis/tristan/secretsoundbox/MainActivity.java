@@ -37,6 +37,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             b.setOnClickListener(this);
             this.setButtonStatus(b, false);
         }
+
+        checkForUpdate();
     }
 
 
@@ -87,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void checkForUpdate() {
         AppUpdater appUpdater = new AppUpdater(this);
         appUpdater.setUpdateFrom(UpdateFrom.JSON);
-        appUpdater.setUpdateJSON("https://tristanweb.000webhostapp.com/update_changelog.json");
+        appUpdater.setUpdateJSON("https://bitbucket.org/DarkPingoo11/secretsoundbox/src/master/release/update-changelog.json");
         appUpdater.start();
     }
 }
