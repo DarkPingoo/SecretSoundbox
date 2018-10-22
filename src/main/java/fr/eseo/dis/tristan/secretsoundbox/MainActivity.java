@@ -9,8 +9,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.dcastalia.localappupdate.DownloadApk;
 import com.github.javiersantos.appupdater.AppUpdater;
+import com.github.javiersantos.appupdater.AppUpdaterUtils;
+import com.github.javiersantos.appupdater.enums.AppUpdaterError;
 import com.github.javiersantos.appupdater.enums.UpdateFrom;
+import com.github.javiersantos.appupdater.objects.Update;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -89,9 +93,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void checkForUpdate() {
         Log.d("Secret", "Check for update");
-        AppUpdater appUpdater = new AppUpdater(this);
-        appUpdater.setUpdateFrom(UpdateFrom.JSON);
-        appUpdater.setUpdateJSON("https://bitbucket.org/DarkPingoo11/secretsoundbox/raw/HEAD/release/update-changelog.json");
-        appUpdater.start();
+        AppUpdaterUtils appUpdaterUtils = new AppUpdaterUtils(this)
+                .setUpdateJSON("https://bitbucket.org/DarkPingoo11/secretsoundbox/raw/HEAD/release/update-changelog.json")
+                .withListener(new AppUpdaterUtils.UpdateListener() {
+
+                    @Override
+                    public void onSuccess(Update update, Boolean isUpdateAvailable) {
+                        String url = update.getUrlToDownload().getPath();
+                        DownloadApk downloadApk = new DownloadApk(MainActivity.this);
+                        downloadApk.startDownloadingApk(url);
+
+                        //TODO - Afficher un message de log
+                    }
+
+                    @Override
+                    public void onFailed(AppUpdaterError error) {
+                        Log.d("AppUpdater Error", "Something went wrong");
+                    }
+                });
+        appUpdaterUtils.start();
     }
 }
