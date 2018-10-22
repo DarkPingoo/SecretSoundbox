@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     public void onSuccess(Update update, Boolean isUpdateAvailable) {
                         // String url = update.getUrlToDownload()+"";
                         Log.d("Secret", "Update ? " + isUpdateAvailable);
-                        Log.d("Secret", "Version ? " + update.getLatestVersion());
+                        Log.d("Secret", "Version ? " + update.getLatestVersionCode() + " | " + update.getLatestVersion());
                         if(isUpdateAvailable) {
                             showDialog(update.getLatestVersion(), update.getUrlToDownload()+"");
                         }
